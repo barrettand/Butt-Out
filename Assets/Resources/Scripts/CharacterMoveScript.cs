@@ -78,4 +78,12 @@ public class CharacterMoveScript : MonoBehaviour {
             buttforce = 0;
         }
     }
+    void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.GetComponent<Rigidbody2D>())
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(buttforce * 0.5f * -dir, 0));
+            buttforce = 0;
+        }
+    }
 }
