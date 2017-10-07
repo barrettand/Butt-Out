@@ -30,4 +30,9 @@ public class MainMenuScript : MonoBehaviour {
     {
         SceneManager.LoadScene("MainMenu");
     }
+    
+    public void PlayButton()
+    {
+        SceneManager.LoadScene("TestScene");
+    }
 }
