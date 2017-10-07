@@ -15,7 +15,9 @@ public class BallOfYarnScript : MonoBehaviour {
 	}
 
     void SpawnBall() {
-        Instantiate(Resources.Load("Prefabs/Ball Of Yarn"), new Vector2(Random.Range(-7.5f, 7.5f), 9), transform.rotation);
+        Quaternion q = new Quaternion(0, 0, 0, 0);
+        q.eulerAngles = new Vector3(0, 0, 270);
+        Instantiate(Resources.Load("Prefabs/Ball Of Yarn"), new Vector2(Random.Range(-7.5f, 7.5f), 9), q);
     }
 
     void OnCollisionEnter2D(Collision2D col) {
