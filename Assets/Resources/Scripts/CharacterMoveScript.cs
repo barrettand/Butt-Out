@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMoveScript : MonoBehaviour {
-    public GameObject opponent, cooldownBar;
+    public GameObject opponent, cooldownBar, victoryText, continueButton;
     public int dir;
     public float buttforce;
     public KeyCode keyLeft, keyRight, keyThrust, keySuperThrust;
-    public bool onGround;
+    public bool onGround, showContinue;
+    public bool showVictory = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -65,6 +68,19 @@ public class CharacterMoveScript : MonoBehaviour {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 500));
             onGround = false;
         }
+        if (transform.position.y < -8)
+        {
+            showVictory = true;
+            victoryText.GetComponent<Text>().enabled = showVictory;
+            victoryText.GetComponent<Text>().text = opponent.gameObject.name + " is victorious!";
+            showContinue = true;
+            continueButton.gameObject.SetActive(showContinue);
+        }
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     void OnCollisionEnter2D(Collision2D col) {
