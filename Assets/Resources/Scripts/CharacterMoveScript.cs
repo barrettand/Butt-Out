@@ -52,7 +52,7 @@ public class CharacterMoveScript : MonoBehaviour {
         if (Input.GetKeyDown(keyThrust) && onGround)
         {
             buttforce = ((2000 - Mathf.Abs(cooldownBar.GetComponent<RectTransform>().anchoredPosition.x)) / 4);
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(((2000 - Mathf.Abs(cooldownBar.GetComponent<RectTransform>().anchoredPosition.x))/4) * dir, 200));
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(((2000 - Mathf.Abs(cooldownBar.GetComponent<RectTransform>().anchoredPosition.x))/4) * dir * transform.GetChild(0).localScale.x, 200));
             onGround = false;
             if (cooldownBar.name.Contains("1"))
             {
@@ -75,23 +75,36 @@ public class CharacterMoveScript : MonoBehaviour {
             victoryText.GetComponent<Text>().text = opponent.gameObject.name + " is victorious!";
             showContinue = true;
             continueButton.gameObject.SetActive(showContinue);
+            Time.timeScale = 0;
         }
     }
 
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
+    }
+
+    public void RevertSize()
+    {
+        transform.GetChild(0).localScale = new Vector3(1, 1, 1);
     }
 
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.name == "Arena") {
             onGround = true;
         }
-        if (col.gameObject.GetComponent<Rigidbody2D>())
+        if (col.gameObject.GetComponent<Rigidbody2D>() && col.gameObject.name.Contains("Player"))
         {
-            col.gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+            if(transform.GetChild(0))
             GetComponent<Rigidbody2D>().AddForce(new Vector2(buttforce * 0.5f * -dir, 0));
             buttforce = 0;
+        }
+        if (col.gameObject.name.Contains("Yarn"))
+        {
+            Destroy(col.gameObject);
+            transform.GetChild(0).localScale = new Vector3(2, 2, 2);
+            Invoke("RevertSize", 5.0f);
         }
     }
     void OnCollisionStay2D(Collision2D col)
