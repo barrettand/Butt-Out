@@ -79,3 +79,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+Assets/Resources/Art.meta
+Assets/Resources/Animations.meta
+*.meta
+Assets/Resources/Sprites.meta
+Assets/Resources/Audio.meta
