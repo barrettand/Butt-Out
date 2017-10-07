@@ -35,7 +35,7 @@ public class CharacterMoveScript : MonoBehaviour {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(buttpower * dir, 200));
             onGround = false;
         }
-        if (Input.GetKeyDown(keySuperThrust))
+        if (Input.GetKeyDown(keySuperThrust) && onGround)
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 500));
             onGround = false;
