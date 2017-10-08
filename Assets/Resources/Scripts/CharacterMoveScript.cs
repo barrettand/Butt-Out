@@ -12,34 +12,23 @@ public class CharacterMoveScript : MonoBehaviour {
     public bool onGround, showContinue;
     public bool showVictory = false;
     public string playerOneChar, playerTwoChar;
-    public Sprite char1, char2, char3, char4, char5;
     // Use this for initialization
 
-    void Start () {
+    void Start ()
+    {
+        if (GameObject.Find("Character Manager").GetComponent<CharacterData>().bothPlayersChosen)
+        {
+            playerOneChar = GameObject.Find("Character Manager").GetComponent<CharacterData>().playerOneChar;
+            playerTwoChar = GameObject.Find("Character Manager").GetComponent<CharacterData>().playerTwoChar;
+        }
         sizeType = 1;
         if (gameObject.name.Contains("1"))
         {
-            switch (playerOneChar)
-            {
-                case "BGBOL":
-                    GetComponent<SpriteRenderer>().sprite = char1;
-                    break;
-                case "Megalodonkadonk":
-                    GetComponent<SpriteRenderer>().sprite = char2;
-                    break;
-            }
+            GetComponent<Animator>().Play(playerOneChar + "Idle");
         }
         else
         {
-            switch (playerTwoChar)
-            {
-                case "BGBOL":
-                    GetComponent<SpriteRenderer>().sprite = char1;
-                    break;
-                case "Megalodonkadonk":
-                    GetComponent<SpriteRenderer>().sprite = char2;
-                    break;
-            }
+            GetComponent<Animator>().Play(playerTwoChar + "Idle");
         }
     }
 	

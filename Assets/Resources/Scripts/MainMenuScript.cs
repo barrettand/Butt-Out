@@ -7,11 +7,15 @@ public class MainMenuScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameObject.Find("Character Manager") && SceneManager.GetActiveScene().name.Contains("Main"))
+        {
+            Destroy(GameObject.Find("Character Manager"));
+        }
         Time.timeScale = 1;
     }
 
