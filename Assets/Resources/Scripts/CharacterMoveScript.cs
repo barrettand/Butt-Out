@@ -11,13 +11,45 @@ public class CharacterMoveScript : MonoBehaviour {
     public KeyCode keyLeft, keyRight, keyThrust, keySuperThrust;
     public bool onGround, showContinue;
     public bool showVictory = false;
-	// Use this for initialization
-	void Start () {
+    public string playerOneChar, playerTwoChar;
+    public Sprite char1, char2, char3, char4, char5;
+    // Use this for initialization
+
+    void Start () {
         sizeType = 1;
-	}
+        if (gameObject.name.Contains("1"))
+        {
+            switch (playerOneChar)
+            {
+                case "BGBOL":
+                    GetComponent<SpriteRenderer>().sprite = char1;
+                    break;
+                case "Megalodonkadonk":
+                    GetComponent<SpriteRenderer>().sprite = char2;
+                    break;
+            }
+        }
+        else
+        {
+            switch (playerTwoChar)
+            {
+                case "BGBOL":
+                    GetComponent<SpriteRenderer>().sprite = char1;
+                    break;
+                case "Megalodonkadonk":
+                    GetComponent<SpriteRenderer>().sprite = char2;
+                    break;
+            }
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        if (GameObject.Find("Character Manager").GetComponent<CharacterData>().bothPlayersChosen)
+        {
+            playerOneChar = GameObject.Find("Character Manager").GetComponent<CharacterData>().playerOneChar;
+            playerTwoChar = GameObject.Find("Character Manager").GetComponent<CharacterData>().playerTwoChar;
+        }
         if (cooldownBar.name.Contains("1") && cooldownBar.GetComponent<RectTransform>().anchoredPosition.x < 0) {
             cooldownBar.GetComponent<RectTransform>().anchoredPosition += new Vector2(5, 0);
         }
@@ -45,11 +77,25 @@ public class CharacterMoveScript : MonoBehaviour {
         {
             if (sizeType == 1 && onGround)
             {
-                GetComponent<Animator>().Play("BGBOLWalk");
+                if (gameObject.name.Contains("1"))
+                {
+                    GetComponent<Animator>().Play(playerOneChar + "Walk");
+                }
+                else
+                {
+                    GetComponent<Animator>().Play(playerTwoChar + "Walk");
+                }
             }
             else if (sizeType == 2 && onGround)
             {
-                GetComponent<Animator>().Play("BGBOLWalkSuper");
+                if (gameObject.name.Contains("1"))
+                {
+                    GetComponent<Animator>().Play(playerOneChar + "WalkSuper");
+                }
+                else
+                {
+                    GetComponent<Animator>().Play(playerTwoChar + "WalkSuper");
+                }
             }
             GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0));
         }
@@ -57,11 +103,25 @@ public class CharacterMoveScript : MonoBehaviour {
         {
             if (sizeType == 1 && onGround)
             {
-                GetComponent<Animator>().Play("BGBOLWalk");
+                if (gameObject.name.Contains("1"))
+                {
+                    GetComponent<Animator>().Play(playerOneChar + "Walk");
+                }
+                else
+                {
+                    GetComponent<Animator>().Play(playerTwoChar + "Walk");
+                }
             }
             else if (sizeType == 2 && onGround)
             {
-                GetComponent<Animator>().Play("BGBOLWalkSuper");
+                if (gameObject.name.Contains("1"))
+                {
+                    GetComponent<Animator>().Play(playerOneChar + "WalkSuper");
+                }
+                else
+                {
+                    GetComponent<Animator>().Play(playerTwoChar + "WalkSuper");
+                }
             }
             GetComponent<Rigidbody2D>().AddForce(new Vector2(10, 0));
         }
@@ -69,11 +129,25 @@ public class CharacterMoveScript : MonoBehaviour {
         {
             if (sizeType == 1)
             {
-                GetComponent<Animator>().Play("BGBOLAttack");
+                if (gameObject.name.Contains("1"))
+                {
+                    GetComponent<Animator>().Play(playerOneChar + "Attack");
+                }
+                else
+                {
+                    GetComponent<Animator>().Play(playerTwoChar + "Attack");
+                }
             }
             else if (sizeType == 2)
             {
-                GetComponent<Animator>().Play("BGBOLAttackSuper");
+                if (gameObject.name.Contains("1"))
+                {
+                    GetComponent<Animator>().Play(playerOneChar + "AttackSuper");
+                }
+                else
+                {
+                    GetComponent<Animator>().Play(playerTwoChar + "AttackSuper");
+                }
             }
             buttforce = ((2000 - Mathf.Abs(cooldownBar.GetComponent<RectTransform>().anchoredPosition.x)) / 4);
             GetComponent<Rigidbody2D>().AddForce(new Vector2(((2000 - Mathf.Abs(cooldownBar.GetComponent<RectTransform>().anchoredPosition.x))/4) * dir * sizeType, 200));
@@ -91,11 +165,25 @@ public class CharacterMoveScript : MonoBehaviour {
         {
             if (sizeType == 1)
             {
-                GetComponent<Animator>().Play("BGBOLAttack");
+                if (gameObject.name.Contains("1"))
+                {
+                    GetComponent<Animator>().Play(playerOneChar + "Attack");
+                }
+                else
+                {
+                    GetComponent<Animator>().Play(playerTwoChar + "Attack");
+                }
             }
             else if (sizeType == 2)
             {
-                GetComponent<Animator>().Play("BGBOLAttackSuper");
+                if (gameObject.name.Contains("1"))
+                {
+                    GetComponent<Animator>().Play(playerOneChar + "AttackSuper");
+                }
+                else
+                {
+                    GetComponent<Animator>().Play(playerTwoChar + "AttackSuper");
+                }
             }
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 500));
             onGround = false;
@@ -104,11 +192,25 @@ public class CharacterMoveScript : MonoBehaviour {
         {
             if (sizeType == 1)
             {
-                GetComponent<Animator>().Play("BGBOLIdle");
+                if (gameObject.name.Contains("1"))
+                {
+                    GetComponent<Animator>().Play(playerOneChar + "Idle");
+                }
+                else
+                {
+                    GetComponent<Animator>().Play(playerTwoChar + "Idle");
+                }
             }
             else if (sizeType == 2)
             {
-                GetComponent<Animator>().Play("BGBOLIdleSuper");
+                if (gameObject.name.Contains("1"))
+                {
+                    GetComponent<Animator>().Play(playerOneChar + "IdleSuper");
+                }
+                else
+                {
+                    GetComponent<Animator>().Play(playerTwoChar + "IdleSuper");
+                }
             }
         }
         if (transform.position.y < -8)

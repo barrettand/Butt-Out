@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CharacterData : MonoBehaviour {
     public GameObject startButton;
-    public string playerOneChar, playerTwoChar;
+    public string playerOneChar = "BGBOL";
+    public string playerTwoChar = "Megalodonkadonk";
     public bool playerOneChosen, bothPlayersChosen = false;
 	// Use this for initialization
 	void Start () {

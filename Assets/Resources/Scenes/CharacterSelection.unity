@@ -422,6 +422,24 @@ Prefab:
       propertyPath: m_Colors.m_NormalColor.b
       value: 0.77254903
       objectReference: {fileID: 0}
+    - target: {fileID: 114911110579107280, guid: c729b34a7acef54449fa41fb096cdbc6,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: BGBOL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664331530127204, guid: c729b34a7acef54449fa41fb096cdbc6, type: 2}
+      propertyPath: m_Name
+      value: BGBOL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819450602290646, guid: c729b34a7acef54449fa41fb096cdbc6, type: 2}
+      propertyPath: m_Name
+      value: Megalodonkadonk
+      objectReference: {fileID: 0}
+    - target: {fileID: 114356094872708210, guid: c729b34a7acef54449fa41fb096cdbc6,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Megalodonkadonk
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c729b34a7acef54449fa41fb096cdbc6, type: 2}
   m_IsPrefabParent: 0
