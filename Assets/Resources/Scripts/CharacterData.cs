@@ -8,8 +8,12 @@ public class CharacterData : MonoBehaviour {
     public string playerOneChar = "BGBOL";
     public string playerTwoChar = "Megalodonkadonk";
     public bool playerOneChosen, bothPlayersChosen = false;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+
+    public AudioSource sounds;
+    public AudioClip characterSelect;
+    void Start () {
+        sounds = FindObjectOfType<AudioSource>();
         DontDestroyOnLoad(gameObject);
 	}
 	
@@ -20,6 +24,8 @@ public class CharacterData : MonoBehaviour {
 
     public void SelectChar (string buttonPressed)
     {
+        sounds.clip = characterSelect;
+        sounds.Play();
         if (playerOneChosen == true && bothPlayersChosen == false)
         {
             bothPlayersChosen = true;

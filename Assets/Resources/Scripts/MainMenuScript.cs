@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour {
 
+    public AudioSource sounds;
+    public AudioClip buttonclick;
 	// Use this for initialization
 	void Start () {
         
@@ -21,22 +23,30 @@ public class MainMenuScript : MonoBehaviour {
 
     public void StartButton()
     {
+        sounds.clip = buttonclick;
+        sounds.Play();
         SceneManager.LoadScene("CharacterSelection");
     }
 
     public void ExitButton()
     {
+        sounds.clip = buttonclick;
+        sounds.Play();
         Debug.Break();
         Application.Quit();
     }
 
     public void BackButton()
     {
+        sounds.clip = buttonclick;
+        sounds.Play();
         SceneManager.LoadScene("MainMenu");
     }
     
     public void PlayButton()
     {
+        sounds.clip = buttonclick;
+        sounds.Play();
         SceneManager.LoadScene("TestScene");
     }
 }
