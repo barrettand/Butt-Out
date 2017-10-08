@@ -12,6 +12,7 @@ public class CharacterMoveScript : MonoBehaviour {
     public bool onGround, showContinue;
     public bool showVictory = false;
     public string playerOneChar, playerTwoChar;
+    public Sprite victoryMsg;
     // Use this for initialization
 
     void Start ()
@@ -205,8 +206,8 @@ public class CharacterMoveScript : MonoBehaviour {
         if (transform.position.y < -8)
         {
             showVictory = true;
-            victoryText.GetComponent<Text>().enabled = showVictory;
-            victoryText.GetComponent<Text>().text = opponent.gameObject.name + " is victorious!";
+            victoryText.GetComponent<Image>().enabled = showVictory;
+            victoryText.GetComponent<Image>().sprite = opponent.GetComponent<CharacterMoveScript>().victoryMsg;
             showContinue = true;
             continueButton.gameObject.SetActive(showContinue);
             Time.timeScale = 0;
