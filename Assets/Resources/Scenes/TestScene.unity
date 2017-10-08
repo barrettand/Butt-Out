@@ -271,7 +271,10 @@ MonoBehaviour:
   showVictory: 0
   playerOneChar: BGBOL
   playerTwoChar: Megalodonkadonk
+<<<<<<< HEAD
   victoryMsg: {fileID: 21300000, guid: 4acf87398031a0c4abf8843b446c9cfb, type: 3}
+=======
+>>>>>>> origin/master
 --- !u!212 &321820758
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -338,7 +341,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 321820754}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: -2.89, z: 0}
+  m_LocalPosition: {x: 5, y: -3.6, z: 0}
   m_LocalScale: {x: -3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -964,7 +967,10 @@ MonoBehaviour:
   showVictory: 0
   playerOneChar: BGBOL
   playerTwoChar: Megalodonkadonk
+<<<<<<< HEAD
   victoryMsg: {fileID: 21300000, guid: 2952ae4cd03967e4f8ae8130d7f89cb0, type: 3}
+=======
+>>>>>>> origin/master
 --- !u!50 &1279734798
 Rigidbody2D:
   serializedVersion: 4
@@ -994,7 +1000,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1279734794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: -2.79, z: 0}
+  m_LocalPosition: {x: -5, y: -3.6, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1107,7 +1113,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1467616686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.54, z: 0}
+  m_LocalPosition: {x: 0, y: -5.34, z: 0}
   m_LocalScale: {x: 12, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1462,7 +1468,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2109960026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.06, z: 0}
+  m_LocalPosition: {x: 0, y: -0.86, z: 0}
   m_LocalScale: {x: 3, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
