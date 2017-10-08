@@ -62,7 +62,23 @@ public class CharacterMoveScript : MonoBehaviour {
         {
             dir = -1;
         }
-        transform.localScale = new Vector3(3 * dir, transform.localScale.y, transform.localScale.z);
+        if (gameObject.name.Contains("1") && (playerOneChar.Contains("BGB") || playerOneChar.Contains("Megalo"))) {
+            transform.localScale = new Vector3(3 * dir, transform.localScale.y, transform.localScale.z);
+        }
+        if (gameObject.name.Contains("1") && !(playerOneChar.Contains("BGB") || playerOneChar.Contains("Megalo")))
+        {
+            transform.localScale = new Vector3(1.6f * dir, 1.5f, transform.localScale.z);
+            GetComponent<BoxCollider2D>().size = new Vector2(0.6f, 1.5f);
+        }
+        if (gameObject.name.Contains("2") && (playerTwoChar.Contains("BGB") || playerTwoChar.Contains("Megalo")))
+        {
+            transform.localScale = new Vector3(3 * dir, transform.localScale.y, transform.localScale.z);
+        }
+        if (gameObject.name.Contains("2") && !(playerTwoChar.Contains("BGB") || playerTwoChar.Contains("Megalo")))
+        {
+            transform.localScale = new Vector3(1.6f * dir, 1.5f, transform.localScale.z);
+            GetComponent<BoxCollider2D>().size = new Vector2(0.6f, 1.5f);
+        }
         if (Input.GetKey(keyLeft))
         {
             if (sizeType == 1 && onGround)
