@@ -12,8 +12,8 @@ public class MainMenuScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-	}
+        Time.timeScale = 1;
+    }
 
     public void StartButton()
     {

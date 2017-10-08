@@ -43,11 +43,11 @@ public class CharacterMoveScript : MonoBehaviour {
         transform.localScale = new Vector3(3 * dir, transform.localScale.y, transform.localScale.z);
         if (Input.GetKey(keyLeft))
         {
-            if (sizeType == 1)
+            if (sizeType == 1 && onGround)
             {
                 GetComponent<Animator>().Play("BGBOLWalk");
             }
-            else if (sizeType == 2)
+            else if (sizeType == 2 && onGround)
             {
                 GetComponent<Animator>().Play("BGBOLWalkSuper");
             }
@@ -55,11 +55,11 @@ public class CharacterMoveScript : MonoBehaviour {
         }
         if (Input.GetKey(keyRight))
         {
-            if (sizeType == 1)
+            if (sizeType == 1 && onGround)
             {
                 GetComponent<Animator>().Play("BGBOLWalk");
             }
-            else if (sizeType == 2)
+            else if (sizeType == 2 && onGround)
             {
                 GetComponent<Animator>().Play("BGBOLWalkSuper");
             }
@@ -125,7 +125,6 @@ public class CharacterMoveScript : MonoBehaviour {
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1;
     }
 
     public void RevertSize()
